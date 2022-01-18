@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 html,
 body {
     height: 100%;
     margin: 0;
+    font-family: 'Kalam', cursive;
 }
 
 .notes {
@@ -10,7 +12,7 @@ body {
 }
 
 .notes * {
-    font-family: sans-serif;
+    font-family: 'Kalam', cursive;
 }
 
 .notes__sidebar {
