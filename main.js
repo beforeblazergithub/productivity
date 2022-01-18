@@ -1,5 +1,4 @@
-import Kanban from "./kanban.js";
+import App from "/App.js";
 
-new Kanban(
-	document.querySelector(".kanban")
-);
+const root = document.getElementById("app");
+const app = new App(root);

@@ -1,68 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
-
+html,
 body {
-    background-color: #009578;
-    font-family: 'Kalam', cursive;
-    text-align: center;
-    vertical-align: middle;
-}
-.kanban {
-	display: flex;
-	padding: 30px;
-	width: 750px;
-	background: #009578;
-	border-radius: 5px;
-    text-align: center;
-    vertical-align: middle;
+    height: 100%;
+    margin: 0;
 }
 
-
-.kanban * {
-	font-family: 'Kalam', cursive;
-    text-align: center;
-    vertical-align: middle;   
+.notes {
+    display: flex;
+    height: 100%;
 }
 
-.kanban__column {
-	flex: 1;
+.notes * {
+    font-family: sans-serif;
 }
 
-.kanban__column:not(:last-child) {
-	margin-right: 30px;
+.notes__sidebar {
+    border-right: 2px solid #dddddd;
+    flex-shrink: 0;
+    overflow-y: auto;
+    padding: 1em;
+    width: 300px;
 }
 
-.kanban__column-title {
-	margin-bottom: 20px;
-	font-size: 30px;
-	color: white;
-	user-select: none;
+.notes__add {
+    background: #009578;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 0.75em 0;
+    width: 100%;
 }
 
-.kanban__item-input {
-	padding: 10px 15px;
-	box-sizing: border-box;
-	background: white;
-	border-radius: 5px;
-	cursor: pointer;
+.notes__add:hover {
+    background: #00af8c;
 }
 
-.kanban__dropzone {
-	height: 10px;
-	transition: background 0.15s, height 0.15s;
+.notes__list-item {
+    cursor: pointer;
 }
 
-.kanban__dropzone--active {
-	height: 20px;
-	background: rgba(0, 0, 0, 0.25);
+.notes__list-item--selected {
+    background: #eeeeee;
+    border-radius: 7px;
+    font-weight: bold;
 }
 
-.kanban__add-item {
-	width: 100%;
-	padding: 10px 0;
-	font-size: 16px;
-	color: white;
-	background: rgba(0, 0, 0, 0.1);
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+.notes__small-title,
+.notes__small-updated {
+    padding: 10px;
+}
+
+.notes__small-title {
+    font-size: 1.2em;
+}
+
+.notes__small-body {
+    padding: 0 10px;
+}
+
+.notes__small-updated {
+    color: #aaaaaa;
+    font-style: italic;
+    text-align: right;
+}
+
+.notes__preview {
+    display: flex;
+    flex-direction: column;
+    padding: 2em 3em;
+    flex-grow: 1;
+}
+
+.notes__title,
+.notes__body {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.notes__title {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.notes__body {
+    flex-grow: 1;
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-top: 2em;
+    resize: none;
 }
