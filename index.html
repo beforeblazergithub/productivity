@@ -1,30 +1,91 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Notes</title>
-    </head>
-    <div id="app">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="wrapper side-panel-open">
+  <div class="main">
+   <div id="app">
         <button class="add-note" type="button">+</button>
       </div>
-</html>
+  </div>
+  <button class="side-panel-toggle" type="button">
+    <span class="material-icons sp-icon-open">keyboard_double_arrow_left</span>
+    <span class="material-icons sp-icon-close">keyboard_double_arrow_right</span>
+  </button>
+  <div class="side-panel">
+    <h1>Notes App Made By<strong> Hunter Martinson</strong></h1>
+  </div>
+</div>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
     body {
         font-family: 'Kalam', cursive;
   margin: 0;
   background: #009578;
 }
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.side-panel-toggle {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+  background: #009575;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.side-panel-toggle:hover {
+  background: #009575;
+}
+
+.sp-icon-close {
+  display: none !important;
+}
+
+.side-panel {
+  display: none;
+  width: 200px;
+  flex-shrink: 0;
+  padding: 20px;
+  color: #ffffff;
+  background: #009575;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+.side-panel-open .side-panel {
+  display: initial;
+}
+
+.side-panel-open .sp-icon-open {
+  display: none !important;
+}
+
+.side-panel-open .sp-icon-close {
+  display: initial !important;
+}
 
 #app {
-    font-family: 'Kalam', cursive;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(auto-fill, 837px);
   padding: 24px;
   gap: 24px;
 }
 
 .note {
-    font-family: 'Kalam', cursive;
   height: 200px;
   box-sizing: border-box;
   padding: 16px;
@@ -32,8 +93,8 @@
   border-radius: 10px;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
   resize: none;
-  font-family: sans-serif;
-  font-size: 16px;
+  font-family: 'Kalam', cursive;
+  font-size: 35px;
 }
 
 .add-note {
@@ -46,6 +107,7 @@
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: background 0.2s;
+  font-family: 'Kalam', cursive;
 }
 
 .add-note:hover {
@@ -53,7 +115,10 @@
 }
 </style>
 <script>
-    const notesContainer = document.getElementById("app");
+  document.querySelector(".side-panel-toggle").addEventListener("click", () => {
+  document.querySelector(".wrapper").classList.toggle("side-panel-open");
+});
+const notesContainer = document.getElementById("app");
 const addNoteButton = notesContainer.querySelector(".add-note");
 
 getNotes().forEach((note) => {
@@ -122,5 +187,5 @@ function deleteNote(id, element) {
 
   saveNotes(notes);
   notesContainer.removeChild(element);
-}
+}   
 </script>
